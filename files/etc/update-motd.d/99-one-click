@@ -1,0 +1,12 @@
+#!/bin/sh
+
+myip=$(hostname -I | awk '{print$1}')
+cat <<EOF
+  Welcome to QuestDB droplet!
+
+  Website:       https://questdb.io
+  Documentation: https://questdb.io/docs/introduction/
+
+  QuestDB config:   /home/questdb/conf/server.conf
+  QuestDB log file: /var/log/questdb/questdb.log
+EOF
