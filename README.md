@@ -22,3 +22,6 @@ To build a marketplace image for the latest QuestDB binary, run the following co
 $ DIGITALOCEAN_TOKEN="<YOUR API TOKEN>" packer build template.pkr.hcl
 ```
 
+## Post setup
+
+The firewall settings explicitly deny port 9000 for security reasons. In case you need the web interface, run `ufw allow 9000/tcp` on the droplet.
