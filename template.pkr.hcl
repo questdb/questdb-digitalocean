@@ -70,7 +70,6 @@ build {
   # Install QuestDB
   provisioner "shell" {
     environment_vars = [
-      "application_name=${var.application_name}",
       "QUESTDB_VERSION=${var.questdb_version}",
       "DEBIAN_FRONTEND=noninteractive"
     ]
@@ -82,6 +81,7 @@ build {
   # Cleanup and validate instance
   provisioner "shell" {
     environment_vars = [
+      "application_name=${var.application_name}",
       "DEBIAN_FRONTEND=noninteractive"
     ]
     scripts = [
