@@ -11,4 +11,4 @@ ufw allow 9003/tcp
 ufw allow 9009
 
 # Enable UFW
-ufw --force disable
+ufw --force enable

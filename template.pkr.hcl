@@ -18,7 +18,7 @@ variable "questdb_version" {
 
 variable "image_name" {
   type        = string
-  default     = "marketplace-snapshot-{{timestamp}}"
+  default     = "questdb-snapshot-{{timestamp}}"
   description = "Name of the snapshot created on DigitalOcean."
 }
 
@@ -51,6 +51,9 @@ build {
 
   # Setup instance configuration
   provisioner "shell" {
+    environment_vars = [
+      "DEBIAN_FRONTEND=noninteractive"
+    ]
     scripts = [
       "scripts/01-setup.sh",
       "scripts/02-firewall.sh",
@@ -61,7 +64,8 @@ build {
   # Install QuestDB
   provisioner "shell" {
     environment_vars = [
-      "QUESTDB_VERSION=${var.questdb_version}"
+      "QUESTDB_VERSION=${var.questdb_version}",
+      "DEBIAN_FRONTEND=noninteractive"
     ]
     scripts = [
       "scripts/04-install-questdb.sh",
@@ -70,6 +74,9 @@ build {
 
   # Cleanup and validate instance
   provisioner "shell" {
+    environment_vars = [
+      "DEBIAN_FRONTEND=noninteractive"
+    ]
     scripts = [
       "scripts/89-cleanup-logs.sh",
       "scripts/90-cleanup.sh",
