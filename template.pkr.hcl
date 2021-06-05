@@ -1,9 +1,3 @@
-variable "application_name" {
-  type        = string
-  default     = "QuestDB"
-  description = "Name of the application to display on DigitalOcean."
-}
-
 variable "token" {
   type        = string
   default     = "${env("DIGITALOCEAN_TOKEN")}"
@@ -81,7 +75,6 @@ build {
   # Cleanup and validate instance
   provisioner "shell" {
     environment_vars = [
-      "application_name=${var.application_name}",
       "DEBIAN_FRONTEND=noninteractive"
     ]
     scripts = [
