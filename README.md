@@ -20,7 +20,7 @@ the configuration you need such as:
 - Backups
 - Networking and VPC configuration
 
-For new DigitalOcean users, our referral program offers \$100 account credit
+For new DigitalOcean users, our referral program offers $100 account credit
 with this link:
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=50d6b551562b&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
