@@ -1,26 +1,45 @@
-# QuestDB DigitalOcean Marketplace image
+# QuestDB DigitalOcean marketplace
 
-Build a specific QuestDB version as a DigitalOcean 1-click image.
+This repository contains the source for the official QuestDB DigitalOcean
+1-click image.
 
-This repository contains all the necessary configuration the get started on
-DigitalOcean.
+## Get started with a 1-Click Droplet
 
-## Prerequisites
+QuestDB is now available on the DigitalOcean marketplace. Set up a new QuestDB
+droplet in one click here:
 
-To work with this repository you need to install
-[Packer](https://www.packer.io/), and make sure that you have a DigitalOcean API
-key.
+[![Create QuestDB droplet on DigitalOcean](.github/do-btn-blue.svg)](https://cloud.digitalocean.com/droplets/new?image=questdb-20-04)
 
-## Setup
+This will allow you to configure the latest QuestDB version as a Droplet with
+the configuration you need such as:
+
+- A choice from 8 geographic regions to deploy to
+- Persistent block storage
+- Monitoring
+- Credentials management for remote access (SSH)
+- Backups
+- Networking and VPC configuration
+
+For new DigitalOcean users, our referral program offers \$100 account credit
+with this link:
+
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=50d6b551562b&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
+## Building a custom DigitalOcean QuestDB image
+
+To build an image using this repository, you need the following:
+
+- [Packer](https://www.packer.io/)
+- [DigitalOcean API key](https://cloud.digitalocean.com/account/api/tokens)
+
+Firstly, Packer should be initialized:
 
 ```bash
 $ packer init .
 ```
 
-## Build an image
-
-To build a marketplace image for the latest QuestDB binary, run the following
-command:
+This command builds a snapshot in the DigitalOcean account associated with the
+API key:
 
 ```bash
 $ DIGITALOCEAN_TOKEN="<YOUR API TOKEN>" packer build template.pkr.hcl
@@ -36,7 +55,7 @@ enabled by default:
 - `9009` - InfluxDB line protocol (TCP and UDP)
 - `9000/tcp` - Web Console & REST API
 - `8812/tcp` - PostgreSQL wire protocol
-- `9003/tcp` - Health monitoring port
+- `9003/tcp` - Health monitoring & Prometheus `/metrics`
 
 It's recommended to disable ports for protocols which are not needed. Aside from
 [QuestDB server configuration](https://questdb.io/docs/reference/configuration#keys-and-default-values),
