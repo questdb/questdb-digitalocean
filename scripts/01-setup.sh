@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# sleep timer to wait until the machine completely boots
+sleep 30
+
 # Create questdb user
 useradd -r -d /home/questdb -s /bin/false questdb
 chown -R questdb:questdb /home/questdb/
