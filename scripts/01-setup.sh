@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# sleep timer to wait until the machine completely boots
-sleep 30
+echo "sleeping for 1 minute to wait until machine completely boots"
+sleep 60
 
 # Create questdb user
 useradd -r -d /home/questdb -s /bin/false questdb

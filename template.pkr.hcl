@@ -12,7 +12,6 @@ variable "image_id" {
 
 variable "questdb_version" {
   type        = string
-  default     = "latest"
   description = "Version number of the desired QuestDB binary."
 }
 
